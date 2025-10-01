@@ -1,7 +1,6 @@
 import movies from "../movies.js";
 import { useState, useEffect } from "react";
 
-
 export default function MyMain(){
     //creo variabile di stato di lista film
     const [moviesList, setMoviesList]= useState(movies);
@@ -29,28 +28,30 @@ export default function MyMain(){
         })
     );
 }, [genres, moviesList]);
-   
     return(
         <>     
-        <select  class="form-select m-3 " aria-label="Default select example"
-            value = {genres}
-            onChange = {(e)=> setGenres(e.target.value)}>
-            <option value="">Genere</option>
-            <option value={"Fantascienza"}>Fantascienza</option>
-            <option value="Thriller">Thriller</option>
-            <option value="Romantico">Romantico</option>
-            <option value="Azione">Azione</option>
-        </select>
-
-        <div className="movies-wrapper">
+        <div className="container">
+            <div className="row">
+                <div className="wrapper-select col-3">
+                    <select  className="form-select my-3 col-6" aria-label="Default select example"
+                        value = {genres}
+                        onChange = {(e)=> setGenres(e.target.value)}>
+                        <option value="">Genere</option>
+                        <option value={"Fantascienza"}>Fantascienza</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Romantico">Romantico</option>
+                        <option value="Azione">Azione</option>
+                    </select>
+                </div>
+                <div className="movies-wrapper">
         
-        <ul class="list-group m-3">
-            {filteredMovies.map((movie, index)=> (
-            <li className="list-group-item" key={index}>{movie.title} - {movie.genre}</li>
-            ))}  
-        </ul>
-
-
+                    <ul className="list-group">
+                    {filteredMovies.map((movie, index)=> (
+                        <li className="list-group-item" key={index}>{movie.title} - {movie.genre}</li>
+                        ))}  
+                    </ul>
+                </div>
+            </div>
         </div>
         </>
     );
