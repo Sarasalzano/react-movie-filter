@@ -1,0 +1,6 @@
+import movies from "../movies.js";
+
+
+export default function MyMain(){
+    return();
+}
