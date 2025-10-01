@@ -1,13 +1,11 @@
-
-import './App.css'
+import './App.css';
+import Main from "./components/MyMain";
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
-    <>
-      
-    </>
+    <Main />
   )
 }
 
